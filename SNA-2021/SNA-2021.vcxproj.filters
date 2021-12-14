@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\SemA">
+      <UniqueIdentifier>{947b1dab-d071-4150-89ab-caa3eea19281}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\In">
+      <UniqueIdentifier>{71b284e2-a195-47b6-9a3f-2eb6a09d1913}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Gen">
+      <UniqueIdentifier>{06bb0087-3a23-41a7-82b7-659d543c2bf2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tables">
+      <UniqueIdentifier>{1a1f561e-5a49-4d9e-b728-6697e0d9951d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Log">
+      <UniqueIdentifier>{983344d7-f08e-4ea8-9e8f-57358416d4dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Error">
+      <UniqueIdentifier>{50987dca-b096-4744-94ec-c15ed8c22dac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Pol">
+      <UniqueIdentifier>{ba3c3b0c-62cd-49e5-bcee-34ed91317bf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SintA">
+      <UniqueIdentifier>{540ec0aa-2412-4ea8-9923-3b1eec268255}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LexA">
+      <UniqueIdentifier>{51030c86-2231-4133-9756-4c0de3551594}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Source">
+      <UniqueIdentifier>{6dbae817-4109-45b6-bc65-29e4f6bc98f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Source\Tests">
+      <UniqueIdentifier>{9182ad37-4acb-4528-a3cc-17fec438334e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Source\Tests\divtests">
+      <UniqueIdentifier>{7aa567c8-2235-4f3c-be2e-e5222d411edc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Source\Tests\lexanal">
+      <UniqueIdentifier>{fc259cc2-93d5-460f-b3a7-0c906329eae9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SNA-2021.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Out.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Error.cpp">
+      <Filter>Source Files\Error</Filter>
+    </ClCompile>
+    <ClCompile Include="Generation.cpp">
+      <Filter>Source Files\Gen</Filter>
+    </ClCompile>
+    <ClCompile Include="Div.cpp">
+      <Filter>Source Files\In</Filter>
+    </ClCompile>
+    <ClCompile Include="In.cpp">
+      <Filter>Source Files\In</Filter>
+    </ClCompile>
+    <ClCompile Include="GRB.cpp">
+      <Filter>Source Files\SintA</Filter>
+    </ClCompile>
+    <ClCompile Include="FST.cpp">
+      <Filter>Source Files\LexA</Filter>
+    </ClCompile>
+    <ClCompile Include="IT.cpp">
+      <Filter>Source Files\Tables</Filter>
+    </ClCompile>
+    <ClCompile Include="LexAnalisys.cpp">
+      <Filter>Source Files\LexA</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>Source Files\Log</Filter>
+    </ClCompile>
+    <ClCompile Include="LT.cpp">
+      <Filter>Source Files\Tables</Filter>
+    </ClCompile>
+    <ClCompile Include="MFST.cpp">
+      <Filter>Source Files\SintA</Filter>
+    </ClCompile>
+    <ClCompile Include="Polish.cpp">
+      <Filter>Source Files\Pol</Filter>
+    </ClCompile>
+    <ClCompile Include="Parm.cpp">
+      <Filter>Source Files\In</Filter>
+    </ClCompile>
+    <ClCompile Include="SemAnalysis.cpp">
+      <Filter>Source Files\SemA</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Out.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Error.h">
+      <Filter>Source Files\Error</Filter>
+    </ClInclude>
+    <ClInclude Include="Generation.h">
+      <Filter>Source Files\Gen</Filter>
+    </ClInclude>
+    <ClInclude Include="Div.h">
+      <Filter>Source Files\In</Filter>
+    </ClInclude>
+    <ClInclude Include="In.h">
+      <Filter>Source Files\In</Filter>
+    </ClInclude>
+    <ClInclude Include="GRB.h">
+      <Filter>Source Files\SintA</Filter>
+    </ClInclude>
+    <ClInclude Include="FST.h">
+      <Filter>Source Files\LexA</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphs.h">
+      <Filter>Source Files\LexA</Filter>
+    </ClInclude>
+    <ClInclude Include="IT.h">
+      <Filter>Source Files\Tables</Filter>
+    </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>Source Files\Log</Filter>
+    </ClInclude>
+    <ClInclude Include="LexAnalisys.h">
+      <Filter>Source Files\LexA</Filter>
+    </ClInclude>
+    <ClInclude Include="LT.h">
+      <Filter>Source Files\Tables</Filter>
+    </ClInclude>
+    <ClInclude Include="MFST.h">
+      <Filter>Source Files\SintA</Filter>
+    </ClInclude>
+    <ClInclude Include="Polish.h">
+      <Filter>Source Files\Pol</Filter>
+    </ClInclude>
+    <ClInclude Include="Parm.h">
+      <Filter>Source Files\In</Filter>
+    </ClInclude>
+    <ClInclude Include="SemAnalysis.h">
+      <Filter>Source Files\SemA</Filter>
+    </ClInclude>
+    <ClInclude Include="Rule.h">
+      <Filter>Source Files\SintA</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="InputOutput\program.txt">
+      <Filter>Source Files\Source</Filter>
+    </Text>
+    <Text Include="InputOutput\program.txt.log">
+      <Filter>Source Files\Source</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\divtests\тестпроверкиковычки.txt">
+      <Filter>Source Files\Source\Tests\divtests</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\divtests\тестнасепарирование.txt">
+      <Filter>Source Files\Source\Tests\divtests</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\divtests\тестпроверкипробелов.txt">
+      <Filter>Source Files\Source\Tests\divtests</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\lexanal\Нарушение цепочек.txt">
+      <Filter>Source Files\Source\Tests\lexanal</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\lexanal\НетЭклера.txt">
+      <Filter>Source Files\Source\Tests\lexanal</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\lexanal\ТестНаВсеЦепочки.txt">
+      <Filter>Source Files\Source\Tests\lexanal</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\lexanal\ЭклераСталоБольшеЧемОдин.txt">
+      <Filter>Source Files\Source\Tests\lexanal</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\lexanal\тесткогдасуммадлинфункциииидентификатрабольше20.txt">
+      <Filter>Source Files\Source\Tests\lexanal</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\lexanal\тестнапревышениедлиныидентификатора.txt">
+      <Filter>Source Files\Source\Tests\lexanal</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="InputOutput\program.txt.out.asm">
+      <Filter>Source Files\Source</Filter>
+    </None>
+  </ItemGroup>
+</Project>

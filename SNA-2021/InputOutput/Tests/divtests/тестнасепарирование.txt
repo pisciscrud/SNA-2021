@@ -1,0 +1,9 @@
+
+
+EKLER
+{  
+
+  create int z = P0<=P0;
+  create int h = (P0+P8)+P0<=P0>=P0!P0?P0;
+
+}

@@ -1,0 +1,16 @@
+EKLER
+{  
+    create num octd = 110_pX8;
+    create num octs = 20_nX8;
+    create num dec = 605_p;
+    create num binf = 011_nX2;
+    create num bins = 10_pX2;
+    }
+EKLER s{
+   create num dec; 
+
+  
+   writeln octs;
+   writeln binf;
+   writeln bins;
+} 

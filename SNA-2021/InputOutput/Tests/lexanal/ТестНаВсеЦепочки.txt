@@ -1,0 +1,21 @@
+procedure Show(){
+create num 
+}
+
+function num Sum (create num a, create num b  ){
+
+   replay ( a > b ){
+   a = a - 1_p;
+   }
+
+   cond ( a ? b ){
+   writeln b;
+   writeln a;
+   }
+
+}
+
+
+Ekler{
+
+}

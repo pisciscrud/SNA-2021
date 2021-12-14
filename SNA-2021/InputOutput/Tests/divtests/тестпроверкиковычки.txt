@@ -1,0 +1,7 @@
+EKLER
+{  
+
+
+   create string a = " fff
+   write a;
+}
