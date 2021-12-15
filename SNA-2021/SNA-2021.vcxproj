@@ -190,6 +190,9 @@
     <Text Include="InputOutput\Tests\lexanal\ТестНаВсеЦепочки.txt" />
     <Text Include="InputOutput\Tests\lexanal\тестнапревышениедлиныидентификатора.txt" />
     <Text Include="InputOutput\Tests\lexanal\ЭклераСталоБольшеЧемОдин.txt" />
+    <Text Include="InputOutput\Tests\sinanal\а.txt" />
+    <Text Include="InputOutput\Tests\sinanal\начальныйсимвол.txt" />
+    <Text Include="InputOutput\Tests\sinanal\параметрыфункции.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="InputOutput\program.txt.out.asm" />

@@ -49,7 +49,7 @@ char** SeparateText(char source[], int size)
 	for (int i = 0, k = 0; i < size - 1; i++, k++) {
 
 		findSeparator = false;
-		if (source[i] == '\'' || source[i] == '\"') findLiteral = !findLiteral;
+		if ( source[i] == '\"') findLiteral = !findLiteral;
 
 		if (source[i] == '=' && (word[j][k - 1] == '>' || word[j][k - 1] == '<')) {
 			word[j][k] = source[i];

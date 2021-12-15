@@ -12,14 +12,15 @@ extern "C" {
 	}
 
 	void OutputStr(char* ptr) {
-		SetConsoleCP(1251);
-		SetConsoleOutputCP(1251);
+		setlocale(LC_ALL, "RUS");
 		if (ptr == nullptr) {
 			std::cout << std::endl;
 			return;
 		}
 		for (int i = 0; ptr[i] != '\0'; i++)
 			std::cout << ptr[i];
+	
+			
 	}
 
 	void OutputIntLn(int a) {
@@ -27,7 +28,14 @@ extern "C" {
 	}
 
 	void OutputStrLn(char* ptr) {
-		OutputStr(ptr);
+
+		setlocale(LC_ALL, "RUS");
+		if (ptr == nullptr) {
+			std::cout << std::endl;
+			return;
+		}
+		for (int i = 0; ptr[i] != '\0'; i++)
+			std::cout << ptr[i];
 		std::cout << std::endl;
 	}
 

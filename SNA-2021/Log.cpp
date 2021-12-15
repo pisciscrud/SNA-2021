@@ -158,6 +158,7 @@ namespace Log {
 
 		for (i = 0, j = 0; i < idtable.size; i++, j++) {
 			*log.stream  << j << "  ";
+			*log.stream  << right  << "  ";
 			*log.stream << setfill(' ') << setw(13) << left << idtable.table[i].id << "  ";
 
 			if (idtable.table[i].idtype == IT::OP) *log.stream << setw(10) << left << "-" << "  ";

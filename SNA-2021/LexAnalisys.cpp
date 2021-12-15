@@ -74,7 +74,7 @@ namespace Lex {
 #pragma region Ключевые слова
 
 			if (FST::execute(FST::FST(word[i], FST_CREATE))) {
-				LT::Entry entryLT = WriteEntry(entryLT, LEX_LET, LT_TI_NULLIDX, line);
+				LT::Entry entryLT = WriteEntry(entryLT, LEX_CREATE, LT_TI_NULLIDX, line);
 				LT::Add(lextable, entryLT);
 				findDeclaration = true;
 			}
@@ -106,26 +106,26 @@ namespace Lex {
 				entryIT.value.vchar = '\u0000';
 			}*/
 			else if (FST::execute(FST::FST(word[i], FST_FUNC))) {
-				LT::Entry entryLT = WriteEntry(entryLT, LEX_FUNCTION, LT_TI_NULLIDX, line);
+				LT::Entry entryLT = WriteEntry(entryLT, LEX_FUNC, LT_TI_NULLIDX, line);
 				LT::Add(lextable, entryLT);
 				findFunc = true;
 			}
 			else if (FST::execute(FST::FST(word[i], FST_PROCESS))) {
-				LT::Entry entryLT = WriteEntry(entryLT, LEX_PROCEDURE, LT_TI_NULLIDX, line);
+				LT::Entry entryLT = WriteEntry(entryLT, LEX_PROCESS, LT_TI_NULLIDX, line);
 				LT::Add(lextable, entryLT);
 				findFunc = true;
 				findProc = true;
 			}
 			else if (FST::execute(FST::FST(word[i], FST_BACK))) {
-				LT::Entry entryLT = WriteEntry(entryLT, LEX_RET, LT_TI_NULLIDX, line);
+				LT::Entry entryLT = WriteEntry(entryLT, LEX_BACK, LT_TI_NULLIDX, line);
 				LT::Add(lextable, entryLT);
 			}
-			else if (FST::execute(FST::FST(word[i], FST_WRITE))) {
-				LT::Entry entryLT = WriteEntry(entryLT, LEX_WRITE, LT_TI_NULLIDX, line);
+			else if (FST::execute(FST::FST(word[i], FST_PRINT))) {
+				LT::Entry entryLT = WriteEntry(entryLT, LEX_PRINT, LT_TI_NULLIDX, line);
 				LT::Add(lextable, entryLT);
 			}
-			else if (FST::execute(FST::FST(word[i], FST_WRITELN))) {
-				LT::Entry entryLT = WriteEntry(entryLT, LEX_WRITELN, LT_TI_NULLIDX, line);
+			else if (FST::execute(FST::FST(word[i], FST_PRINTLN))) {
+				LT::Entry entryLT = WriteEntry(entryLT, LEX_PRINTLN, LT_TI_NULLIDX, line);
 				LT::Add(lextable, entryLT);
 			}
 			else if (FST::execute(FST::FST(word[i], FST_EKLER))) {
@@ -136,24 +136,24 @@ namespace Lex {
 				IT::Add(idtable, entryIT);
 				entryIT = {};
 
-				LT::Entry entryLT = WriteEntry(entryLT, LEX_MAIN, IT::IsId(idtable, word[i]), line);
+				LT::Entry entryLT = WriteEntry(entryLT, LEX_EKLER, IT::IsId(idtable, word[i]), line);
 				LT::Add(lextable, entryLT);
 				functions.push(word[i]);
 				findEkler = true;
 				EklerCounter++;
 			}
 			else if (FST::execute(FST::FST(word[i], FST_REPLAY))) {
-				LT::Entry entryLT = WriteEntry(entryLT, LEX_REPEAT, LT_TI_NULLIDX, line);
+				LT::Entry entryLT = WriteEntry(entryLT, LEX_REPLAY, LT_TI_NULLIDX, line);
 				LT::Add(lextable, entryLT);
 				is_cycle++;
 			}
 			else if (FST::execute(FST::FST(word[i], FST_COND))) {
-				LT::Entry entryLT = WriteEntry(entryLT, LEX_WHERE, LT_TI_NULLIDX, line);
+				LT::Entry entryLT = WriteEntry(entryLT, LEX_COND, LT_TI_NULLIDX, line);
 				LT::Add(lextable, entryLT);
 				is_cycle++;
 			}
 			else if (FST::execute(FST::FST(word[i], FST_OTHER))) {
-				LT::Entry entryLT = WriteEntry(entryLT, LEX_ELSE, LT_TI_NULLIDX, line);
+				LT::Entry entryLT = WriteEntry(entryLT, LEX_OTHER, LT_TI_NULLIDX, line);
 				LT::Add(lextable, entryLT);
 				is_cycle++;
 			}

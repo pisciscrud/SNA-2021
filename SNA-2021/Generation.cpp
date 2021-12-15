@@ -54,7 +54,7 @@ namespace Gen {
 		out << "\n.data\n";
 		out << "\tbuffer BYTE 256 dup(0)\n";
 		for (int i = 0; i < lexT.size; i++) {
-			if (lexT.table[i].lexema == LEX_LET) {
+			if (lexT.table[i].lexema == LEX_CREATE) {
 				if (idT.table[lexT.table[i + 2].idxTI].idtype == IT::V) {
 					out << "\t" << idT.table[lexT.table[i + 2].idxTI].id;
 					if (idT.table[lexT.table[i + 2].idxTI].iddatatype == IT::STR)
@@ -92,8 +92,8 @@ namespace Gen {
 		out << "\n.code\n\n";
 		for (int i = 0; i < lexT.size; i++) {
 			switch (lexT.table[i].lexema) {
-			case LEX_PROCEDURE:
-			case LEX_FUNCTION:
+			case LEX_PROCESS:
+			case LEX_FUNC:
 #pragma region Function
 
 				while (lexT.table[i].lexema != LEX_RIGHTTHESIS) {
@@ -121,7 +121,7 @@ namespace Gen {
 				break;
 
 #pragma endregion
-			case LEX_MAIN:
+			case LEX_EKLER:
 				flag_body = true;
 				out << "main PROC\n";
 				break;
@@ -336,7 +336,7 @@ namespace Gen {
 
 				out << "\tcall " << idT.table[lexT.table[i - countParm - 1].idxTI].id << "\n";
 				break;
-			case LEX_RET:
+			case LEX_BACK:
 				out << "\tpush ";
 				if (idT.table[lexT.table[i + 1].idxTI].idtype == IT::L)
 					out << idT.table[lexT.table[i + 1].idxTI].value.vint << "\n";
@@ -395,16 +395,16 @@ namespace Gen {
 				}
 				break;
 #pragma endregion
-			case LEX_WHERE:
+			case LEX_COND:
 				flag_if = true;
 				break;
 
-			case LEX_REPEAT:
+			case LEX_REPLAY:
 				flag_cycle = true;
 				flag_condition = true;
 				break;
 
-			case LEX_ELSE:
+			case LEX_OTHER:
 				flag_else = true;
 				break;
 
@@ -442,7 +442,7 @@ namespace Gen {
 					out << "\tje m" << num_of_points + 1 << "\n";
 					int j = i;
 					while (lexT.table[j++].lexema != LEX_BRACELET) {
-						if (lexT.table[j + 1].lexema == LEX_ELSE) {
+						if (lexT.table[j + 1].lexema == LEX_OTHER) {
 							flag_else = true;
 							break;
 						}
@@ -497,7 +497,7 @@ namespace Gen {
 				}
 				break;
 
-			case LEX_WRITE:
+			case LEX_PRINT:
 				if (idT.table[lexT.table[i + 1].idxTI].iddatatype == IT::INT || idT.table[lexT.table[i + 1].idxTI].iddatatype == IT::BOOL)
 					out << "\tpush " << idT.table[lexT.table[i + 1].idxTI].id << "\n\tcall OutputInt\n";
 				else {
@@ -509,7 +509,7 @@ namespace Gen {
 				}
 				break;
 
-			case LEX_WRITELN:
+			case LEX_PRINTLN:
 				if (idT.table[lexT.table[i + 1].idxTI].iddatatype == IT::INT || idT.table[lexT.table[i + 1].idxTI].iddatatype == IT::BOOL)
 					out << "\tpush " << idT.table[lexT.table[i + 1].idxTI].id << "\n\tcall OutputIntLn\n";
 				else {

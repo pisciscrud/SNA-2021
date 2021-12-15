@@ -16,40 +16,41 @@ EXTRN DEG: proc
 .stack 4096
 
 .const
-	L1 SDWORD 72
-	L2 SDWORD -16
-	L3 SDWORD 605
-	L4 SDWORD -3
-	L5 SDWORD 2
+	L1 SDWORD 0
 
 .data
 	buffer BYTE 256 dup(0)
-	EKLERoctd SDWORD 0
-	EKLERocts SDWORD 0
-	EKLERdec SDWORD 0
-	EKLERbinf SDWORD 0
-	EKLERbins SDWORD 0
-	EKLERdec SDWORD 0
+	ka SDWORD 0
+	EKLERz SDWORD 0
+	la SDWORD 0
 
 .code
 
+i PROC 
+	push 0
+	jmp local0
+local0:
+	pop eax
+	ret
+i ENDP
+
+k PROC 
+	ret
+k ENDP
+
 main PROC
-	push L1
-	pop EKLERoctd
-	push L2
-	pop EKLERocts
-	push L3
-	pop EKLERdec
-	push L4
-	pop EKLERbinf
-	push L5
-	pop EKLERbins
-	push EKLERocts
-	call OutputIntLn
-	push EKLERbinf
-	call OutputIntLn
-	push EKLERbins
-	call OutputIntLn
 	call ExitProcess
 main ENDP
-end main
+end maing PROC 
+	push 0
+	jmp local1
+		jmp theend
+local1:
+	pop eax
+	ret
+g ENDP
+
+l PROC 
+	ret
+l ENDP
+

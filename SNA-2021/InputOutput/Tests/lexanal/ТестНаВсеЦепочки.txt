@@ -1,21 +1,49 @@
-procedure Show(){
-create num 
-}
 
-function num Sum (create num a, create num b  ){
-
-   replay ( a > b ){
-   a = a - 1_p;
+ num  func sum ( num a  )
+     {
+     create num nul = a * 2_p;
+      back nul;
    }
 
-   cond ( a ? b ){
-   writeln b;
-   writeln a;
+  process sum2 ( num a  )
+     {
+     create num nul = a * 2_p;
+     
    }
 
+
+
+EKLER
+{
+create string h;
+println h;
+
+create string g = "assd";
+create num a = 0_pX2;
+create num b = 9_p;
+create num c = 10_nX8;
+
+cond ( a ? 1_p) {
+println a;
+}
+other {
+println "ty pidor";
 }
 
+create num i = sum(10_p);
+println i;
 
-Ekler{
+sum2(20_pX8);
 
+replay (b > 0_p)
+{
+ println b;
+ b = b - 1_p;
+}
+
+create num operators = (1_p > 2_p) + (9_p <= 10_p) * 9_p / 2_p % 3_p ? 2_p - 3_p >= 2_p > 0_p ! 0_p;
+create num ss = ABS(2_n);
+println ss;
+create num wer =  DEG (2_n,2_p);
+println wer;
 }

@@ -29,7 +29,7 @@ namespace Semantic {
 					}
 				}
 				continue;
-			case LEX_FUNCTION:
+			case LEX_FUNC:
 				if (std::count(functions_id.begin(), functions_id.end(), lex.idtable.table[lex.lextable.table[i + 1].idxTI].id)) {
 					Log::WriteError(log, Error::geterrorin(307, lex.lextable.table[i + 1].line, -1));
 					is_ok = false;
@@ -40,7 +40,7 @@ namespace Semantic {
 				int type = lex.idtable.table[lex.lextable.table[j].idxTI].iddatatype;
 				do {
 					j++;
-				} while ((lex.lextable.table[j].lexema != LEX_RET));
+				} while ((lex.lextable.table[j].lexema != LEX_BACK));
 				if (lex.idtable.table[lex.lextable.table[j + 1].idxTI].iddatatype != type) {
 					Log::WriteError(log, Error::geterrorin(314, lex.lextable.table[j].line, -1));
 					is_ok = false;

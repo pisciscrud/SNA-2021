@@ -52,6 +52,9 @@
     <Filter Include="Source Files\Source\Tests\lexanal">
       <UniqueIdentifier>{fc259cc2-93d5-460f-b3a7-0c906329eae9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Source\Tests\sinanal">
+      <UniqueIdentifier>{7201e132-64e9-4b1c-a4aa-7efe0df0eeb9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SNA-2021.cpp">
@@ -192,6 +195,15 @@
     </Text>
     <Text Include="InputOutput\Tests\lexanal\тестнапревышениедлиныидентификатора.txt">
       <Filter>Source Files\Source\Tests\lexanal</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\sinanal\начальныйсимвол.txt">
+      <Filter>Source Files\Source\Tests\sinanal</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\sinanal\параметрыфункции.txt">
+      <Filter>Source Files\Source\Tests\sinanal</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\sinanal\а.txt">
+      <Filter>Source Files\Source\Tests\sinanal</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>

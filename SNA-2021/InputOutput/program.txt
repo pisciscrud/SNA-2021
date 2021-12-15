@@ -1,18 +1,25 @@
 
+num func i ()
+{
+back 0_p;
+}
 
+process k ()
+{
+create num a;
 
+}
 
-  
-    create num octd = 110_pX8;
-    create num octs = 20_nX8;
-    create num dec = 605_p;
-    create num binf = 011_nX2;
-    create num bins = 10_pX2;
- 
-   create num dec; 
+EKLER
+{
+ create num z;
+}
+num func g ()
+{
+back 0_p;
+}
+process l ()
+{
+create num a;
 
-  
-   writeln octs;
-   writeln binf;
-   writeln bins;
-
+}
