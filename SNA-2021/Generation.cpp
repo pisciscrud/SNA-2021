@@ -43,7 +43,7 @@ namespace Gen {
 				out << "\t" << idT.table[i].id;
 				if (idT.table[i].iddatatype == IT::STR)
 					out << " BYTE \"" << idT.table[i].value.vstr.str << "\", 0";
-				if (idT.table[i].iddatatype == IT::INT || idT.table[i].iddatatype == IT::BOOL)
+				if (idT.table[i].iddatatype == IT::NUM)
 					out << " SDWORD " << idT.table[i].value.vint;
 				out << "\n";
 			}
@@ -59,7 +59,7 @@ namespace Gen {
 					out << "\t" << idT.table[lexT.table[i + 2].idxTI].id;
 					if (idT.table[lexT.table[i + 2].idxTI].iddatatype == IT::STR)
 						out << " DWORD ?\n";
-					if (idT.table[lexT.table[i + 2].idxTI].iddatatype == IT::INT || idT.table[lexT.table[i + 2].idxTI].iddatatype == IT::BOOL)
+					if (idT.table[lexT.table[i + 2].idxTI].iddatatype == IT::NUM)
 						out << " SDWORD 0\n";
 				}
 			}
@@ -105,7 +105,7 @@ namespace Gen {
 
 					if (lexT.table[i].lexema == LEX_ID && idT.table[lexT.table[i].idxTI].idtype == IT::P) {
 						out << idT.table[lexT.table[i].idxTI].id << " : ";
-						if (idT.table[lexT.table[i].idxTI].iddatatype == IT::INT || idT.table[lexT.table[i].idxTI].iddatatype == IT::BOOL)
+						if (idT.table[lexT.table[i].idxTI].iddatatype == IT::NUM)
 							out << "SDWORD";
 						else
 							out << "DWORD";
@@ -135,7 +135,7 @@ namespace Gen {
 					case LEX_LITERAL:
 						if (idT.table[lexT.table[i].idxTI].idtype == IT::F)
 							flag_callfunc = true;
-						if (idT.table[lexT.table[i].idxTI].iddatatype == IT::INT || idT.table[lexT.table[i].idxTI].iddatatype == IT::BOOL) {
+						if (idT.table[lexT.table[i].idxTI].iddatatype == IT::NUM) {
 							out << "\tpush " << idT.table[lexT.table[i].idxTI].id << "\n";
 							stk.push(idT.table[lexT.table[i].idxTI].id);
 							break;
@@ -304,10 +304,6 @@ namespace Gen {
 							stk.pop();
 						}
 
-						/*if (flag_callfunc) {
-							out << "\tcall " << idT.table[lexT.table[i - countParm - 1].idxTI].id << "\n\tpush eax\n";
-							flag_callfunc = false;
-						}*/
 						out << "\tcall " << idT.table[lexT.table[i].idxTI].id << "\n\tpush eax\n";
 						flag_callfunc = false;
 						break;
@@ -324,7 +320,7 @@ namespace Gen {
 			case '@':
 				countParm = (char)lexT.table[i + 1].lexema - '0';
 				for (int j = 1; j <= countParm; j++) {
-					if (idT.table[lexT.table[i - j].idxTI].iddatatype == IT::INT || idT.table[lexT.table[i - j].idxTI].iddatatype == IT::BOOL)
+					if (idT.table[lexT.table[i - j].idxTI].iddatatype == IT::NUM)
 						out << "\tpush " << idT.table[lexT.table[i - j].idxTI].id << "\n";
 					else {
 						if (idT.table[lexT.table[i - j].idxTI].idtype == IT::L)
@@ -334,7 +330,7 @@ namespace Gen {
 					}
 				}
 
-				out << "\tcall " << idT.table[lexT.table[i - countParm - 1].idxTI].id << "\n";
+				out << "\tcall " << idT.table[lexT.table[i].idxTI].id << "\n";
 				break;
 			case LEX_BACK:
 				out << "\tpush ";
@@ -382,16 +378,19 @@ namespace Gen {
 						flag_else = false;
 					}
 					out << "m" << num_of_points++ << ":\n";
+					break;
 				}
 				if (flag_else) {
 					flag_else = false;
 					out << "e" << num_of_ends++ << ":\n";
+					break;
 				}
 				if (flag_cycle) {
 					out << cycle_code << "cyclenext" << num_of_cycles << ":\n";
 					cycle_code.clear();
 					num_of_cycles++;
 					flag_cycle = false;
+					break;
 				}
 				break;
 #pragma endregion
@@ -412,33 +411,28 @@ namespace Gen {
 #pragma region LEFTTHESIS
 
 				if (flag_if) {
-					if (idT.table[lexT.table[i + 1].idxTI].iddatatype == IT::BOOL && lexT.table[i + 2].lexema == LEX_RIGHTTHESIS) {
-						out << "\tmov eax, " << idT.table[lexT.table[i + 1].idxTI].id << "\n";
-						out << "\tcmp eax, 1\n";
+
+
+					out << "\tmov eax, " << idT.table[lexT.table[i + 1].idxTI].id << "\n";
+					out << "\tcmp eax, " << idT.table[lexT.table[i + 3].idxTI].id << "\n";
+
+					if (lexT.table[i + 2].op == LT::OMORE) {
+						out << "\tjg m" << num_of_points << "\n";
+						out << "\tjl m" << num_of_points + 1 << "\n";
+					}
+					else if (lexT.table[i + 2].op == LT::OLESS) {
+						out << "\tjl m" << num_of_points << "\n";
+						out << "\tjg m" << num_of_points + 1 << "\n";
+					}
+					else if (lexT.table[i + 2].op == LT::OEQU) {
 						out << "\tjz m" << num_of_points << "\n";
 						out << "\tjnz m" << num_of_points + 1 << "\n";
 					}
-					else {
-						out << "\tmov eax, " << idT.table[lexT.table[i + 1].idxTI].id << "\n";
-						out << "\tcmp eax, " << idT.table[lexT.table[i + 3].idxTI].id << "\n";
-
-						if (lexT.table[i + 2].op == LT::OMORE) {
-							out << "\tjg m" << num_of_points << "\n";
-							out << "\tjl m" << num_of_points + 1 << "\n";
-						}
-						else if (lexT.table[i + 2].op == LT::OLESS) {
-							out << "\tjl m" << num_of_points << "\n";
-							out << "\tjg m" << num_of_points + 1 << "\n";
-						}
-						else if (lexT.table[i + 2].op == LT::OEQU) {
-							out << "\tjz m" << num_of_points << "\n";
-							out << "\tjnz m" << num_of_points + 1 << "\n";
-						}
-						else if (lexT.table[i + 2].op == LT::ONEQU) {
-							out << "\tjnz m" << num_of_points << "\n";
-							out << "\tjz m" << num_of_points + 1 << "\n";
-						}
+					else if (lexT.table[i + 2].op == LT::ONEQU) {
+						out << "\tjnz m" << num_of_points << "\n";
+						out << "\tjz m" << num_of_points + 1 << "\n";
 					}
+
 					out << "\tje m" << num_of_points + 1 << "\n";
 					int j = i;
 					while (lexT.table[j++].lexema != LEX_BRACELET) {
@@ -448,7 +442,7 @@ namespace Gen {
 						}
 					}
 				}
-
+				//удалить про бул 
 				if (flag_condition) {
 					if (idT.table[lexT.table[i + 1].idxTI].iddatatype == IT::BOOL && lexT.table[i + 2].lexema == LEX_RIGHTTHESIS) {
 						out << "\tmov eax, " << idT.table[lexT.table[i + 1].idxTI].id << "\n";
@@ -498,7 +492,7 @@ namespace Gen {
 				break;
 
 			case LEX_PRINT:
-				if (idT.table[lexT.table[i + 1].idxTI].iddatatype == IT::INT || idT.table[lexT.table[i + 1].idxTI].iddatatype == IT::BOOL)
+				if (idT.table[lexT.table[i + 1].idxTI].iddatatype == IT::NUM)
 					out << "\tpush " << idT.table[lexT.table[i + 1].idxTI].id << "\n\tcall OutputInt\n";
 				else {
 					if (idT.table[lexT.table[i + 1].idxTI].idtype == IT::L)
@@ -510,7 +504,7 @@ namespace Gen {
 				break;
 
 			case LEX_PRINTLN:
-				if (idT.table[lexT.table[i + 1].idxTI].iddatatype == IT::INT || idT.table[lexT.table[i + 1].idxTI].iddatatype == IT::BOOL)
+				if (idT.table[lexT.table[i + 1].idxTI].iddatatype == IT::NUM)
 					out << "\tpush " << idT.table[lexT.table[i + 1].idxTI].id << "\n\tcall OutputIntLn\n";
 				else {
 					if (idT.table[lexT.table[i + 1].idxTI].idtype == IT::L)

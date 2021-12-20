@@ -1,0 +1,11 @@
+num func sum (num a )
+{
+     create num nul = a * 2_p;
+     back nul;
+}
+
+EKLER{
+
+ create num i = sum(1_p);
+ print i;
+}

@@ -1,0 +1,13 @@
+num func g (num a, num b, num c){
+
+create num d = a + b + c;
+back d;
+}
+
+
+
+EKLER {
+
+create num f = (g(1_p,2_p,3_p)+4_p)*5_p>0_p;
+print f;
+}

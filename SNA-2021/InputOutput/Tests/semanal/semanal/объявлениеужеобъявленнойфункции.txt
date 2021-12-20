@@ -1,0 +1,12 @@
+string func h (){
+
+back "fff";
+}
+tring func h (){
+
+back "fff";
+}
+EKLER {
+ print "hh";
+
+}

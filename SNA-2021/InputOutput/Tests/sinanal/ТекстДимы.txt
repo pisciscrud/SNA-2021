@@ -1,0 +1,26 @@
+procedure f(num i)
+{
+replay(i < 100_p)
+{
+cond(i ? 20_n)
+{
+println "special message";
+}
+
+
+cond(i ? 20_p)
+{
+println "special message";
+}
+i=i+1_p;
+
+print "Число = ";
+println i;
+}
+}
+
+EKLER
+{
+create num i =127_n;
+f(i);
+}

@@ -3,7 +3,9 @@
 EKLER
 {  
 
-  create int z = P0<=P0;
-  create int h = (P0+P8)+P0<=P0>=P0!P0?P0;
+  create num z = 0_p <= 0_p;
+  create num h = (0_p+8_p)+0_p<=0_p>=0_p!0_p?0_p;
+  print z;
+  print h;
 
 }

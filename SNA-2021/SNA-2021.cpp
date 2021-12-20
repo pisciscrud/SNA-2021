@@ -3,7 +3,6 @@
 #include "Parm.h"
 #include "In.h"
 #include "Log.h"
-#include "Out.h"
 #include "FST.h"
 #include "Polish.h"
 #include "LexAnalisys.h"
@@ -30,13 +29,11 @@ int wmain(int argc, wchar_t* argv[]) {
 
 		Lex::LEX lex = Lex::LexAnaliz(log, in);
 
-		WriteIdTableLog(lex.idtable, log);
-		WriteLexTableLog(lex.lextable, log);
-
-
 		MFST::check_syntax(lex, log, *log.stream);
 
-	
+		
+
+		
 		if (!Semantic::Analyze(lex, log)) {
 			std::cout << "Semantic errors. Check log file to get more info";
 			exit(-1);
@@ -44,6 +41,13 @@ int wmain(int argc, wchar_t* argv[]) {
 
 		Polish::startPolish(lex);
 		Lex::Synchronization(lex);
+
+		WriteIdTableLog(lex.idtable, log);
+		WriteLexTableLog(lex.lextable, log);
+
+		
+
+	;
 
 		Gen::Generator Gener(lex.lextable, lex.idtable, parm.out);
 		Log::Close(log);

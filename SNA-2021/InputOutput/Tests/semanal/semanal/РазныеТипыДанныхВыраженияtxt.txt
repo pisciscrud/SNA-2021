@@ -1,0 +1,12 @@
+
+EKLER
+{
+create string str = "sads";
+
+ create num l;
+ create num z = 127_p;
+ create num p = 128_n;
+
+
+ create num a = str+l;
+}

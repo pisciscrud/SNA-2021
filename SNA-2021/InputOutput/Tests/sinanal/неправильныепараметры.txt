@@ -1,0 +1,12 @@
+num func h (num j num k)
+{
+create num l=10_p;
+back l;
+}
+EKLER {
+
+create string pp;
+
+
+
+}

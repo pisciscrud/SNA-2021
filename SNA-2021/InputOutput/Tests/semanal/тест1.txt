@@ -9,10 +9,6 @@ create num am = 110_p;
 }
 
 EKLER {
-create num oo = 0_n;
-}
-process g()
-{
-create num am = 110_p;
-}
+create num oo = 0_p;
 
+}

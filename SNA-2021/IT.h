@@ -9,7 +9,7 @@
 #define TI_STR_MAXSIZE 255
 
 namespace IT {
-	enum IDDATATYPE { INT = 1, STR = 2, BOOL = 3, PROC = 4, CHAR = 5 };
+	enum IDDATATYPE { NO = 0, NUM = 1, STR = 2, PROC = 3, BOOL = 4 };
 	enum IDTYPE { V = 1, F = 2, P = 3, L = 4, OP = 5 };
 
 	struct Entry {
@@ -42,5 +42,5 @@ namespace IT {
 	int IsId(IdTable& idtable, char id[ID_MAXSIZE]);
 
 	void Delete(IdTable& idtable);
-	void ShowTable(IdTable& idtable, Parm::PARM parm);
+	//void ShowTable(IdTable& idtable, Parm::PARM parm);
 }

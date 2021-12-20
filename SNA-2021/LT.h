@@ -4,10 +4,10 @@
 #define LEXEMA_FIXSIZE	1
 #define LT_MAXSIZE		4096
 #define LT_TI_NULLIDX	0xffffffff
-#define LEX_INT			't'
+#define LEX_NUM			't'
 #define LEX_STRING		't'
 //#define LEX_CHAR        't'
-#define LEX_BOOL		't'
+//#define LEX_BOOL		't'
 #define LEX_ID			'i'
 #define LEX_LITERAL		'l'
 #define LEX_FUNC	    'f'
@@ -29,6 +29,7 @@
 #define LEX_EQUAL		'='
 #define LEX_REPLAY		'u'
 #define LEX_PROCESS  	'p'
+#define LEX_CALL        '@'
 #define LEX_COND		'w'
 #define LEX_OTHER		'!'
 #define LEX_PRINTLN		'b'
@@ -52,7 +53,7 @@ namespace LT {
 	struct Entry {
 		char lexema;
 		int line;
-		int idxTI;
+		int idxTI;//ссылка на соответствующую структуру в таблице идентификаторов 
 		int priority;
 		operations op;
 	};

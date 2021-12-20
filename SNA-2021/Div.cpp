@@ -1,13 +1,13 @@
 #include "Div.h"
-//удаляем лишние пробелы 
+//удаляем лишние пробелы
 void Cleaning(char source[], int size, Log::LOG logfile) {
 	char Separators[] = { " ,;(){}=+-*/|<>%!?" };
 	bool findLiteral = false;
 	int count = 0;
 
 	for (int i = 0; i < size; i++) {
-		if (source[i] == '\"' ) {
-			findLiteral = !findLiteral; 
+		if (source[i] == '\"') {
+			findLiteral = !findLiteral;
 			count++;
 		}
 
@@ -35,7 +35,7 @@ void Cleaning(char source[], int size, Log::LOG logfile) {
 	std::cout << std::endl;
 }
 
-//выделяем отдельные слова и сепараторы 
+//выделяем отдельные слова и сепараторы
 char** SeparateText(char source[], int size)
 {
 	char** word = new char* [max_word];
@@ -46,10 +46,9 @@ char** SeparateText(char source[], int size)
 	bool findSeparator, findLiteral = false;
 	int j = 0;
 	char Separators[] = { " ,;(){}=+-*/|<>%!?" };
-	for (int i = 0, k = 0; i < size - 1; i++, k++) {
-
+	for (int i = 0, k = 0; i < size; i++, k++) {
 		findSeparator = false;
-		if ( source[i] == '\"') findLiteral = !findLiteral;
+		if (source[i] == '\"') findLiteral = !findLiteral;
 
 		if (source[i] == '=' && (word[j][k - 1] == '>' || word[j][k - 1] == '<')) {
 			word[j][k] = source[i];
@@ -72,11 +71,10 @@ char** SeparateText(char source[], int size)
 
 					word[j][k++] = Separators[t];
 					if ((Separators[t] == '<' || Separators[t] == '>') && source[i + 1] == '=') {
-						
 						word[j][k++] = '=';
 						i++;
 					}
-	
+
 					word[j++][k] = '\0';
 					k = -1;
 					break;

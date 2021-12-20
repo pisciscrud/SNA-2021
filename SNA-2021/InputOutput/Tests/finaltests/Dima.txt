@@ -1,0 +1,12 @@
+process f()
+{
+print "12";
+}
+
+EKLER
+{
+
+f();
+
+
+}

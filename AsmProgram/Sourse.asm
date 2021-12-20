@@ -16,41 +16,24 @@ EXTRN DEG: proc
 .stack 4096
 
 .const
-	L1 SDWORD 0
+	L1 BYTE "asda", 0
+	L2 BYTE "message", 0
 
 .data
 	buffer BYTE 256 dup(0)
-	ka SDWORD 0
-	EKLERz SDWORD 0
-	la SDWORD 0
 
 .code
 
-i PROC 
-	push 0
-	jmp local0
-local0:
-	pop eax
+fun2 PROC 
+	push offset L1
+	call OutputStrLn
 	ret
-i ENDP
-
-k PROC 
-	ret
-k ENDP
+fun2 ENDP
 
 main PROC
+	call fun2
+	push offset L2
+	call OutputStrLn
 	call ExitProcess
 main ENDP
-end maing PROC 
-	push 0
-	jmp local1
-		jmp theend
-local1:
-	pop eax
-	ret
-g ENDP
-
-l PROC 
-	ret
-l ENDP
-
+end main

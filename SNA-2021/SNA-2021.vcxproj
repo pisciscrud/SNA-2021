@@ -184,15 +184,29 @@
     <Text Include="InputOutput\Tests\divtests\тестнасепарирование.txt" />
     <Text Include="InputOutput\Tests\divtests\тестпроверкиковычки.txt" />
     <Text Include="InputOutput\Tests\divtests\тестпроверкипробелов.txt" />
+    <Text Include="InputOutput\Tests\finaltests\Dima.txt" />
+    <Text Include="InputOutput\Tests\finaltests\ЗапретОператоровСтроковогоВыражения.txt" />
     <Text Include="InputOutput\Tests\lexanal\Нарушение цепочек.txt" />
     <Text Include="InputOutput\Tests\lexanal\НетЭклера.txt" />
     <Text Include="InputOutput\Tests\lexanal\тесткогдасуммадлинфункциииидентификатрабольше20.txt" />
     <Text Include="InputOutput\Tests\lexanal\ТестНаВсеЦепочки.txt" />
     <Text Include="InputOutput\Tests\lexanal\тестнапревышениедлиныидентификатора.txt" />
     <Text Include="InputOutput\Tests\lexanal\ЭклераСталоБольшеЧемОдин.txt" />
-    <Text Include="InputOutput\Tests\sinanal\а.txt" />
+    <Text Include="InputOutput\Tests\semanal\semanal\НеДеклорированныеИдентификаторыВВыражении.txt" />
+    <Text Include="InputOutput\Tests\semanal\semanal\объявлениеужеобъявленнойфункции.txt" />
+    <Text Include="InputOutput\Tests\semanal\semanal\ПревышениеЗначениячисловогоЛитерала.txt" />
+    <Text Include="InputOutput\Tests\semanal\semanal\РазныеТипыДанныхВыраженияtxt.txt" />
+    <Text Include="InputOutput\Tests\semanal\semanal\ФункцияВозращаетНеверныйТипДанных.txt" />
+    <Text Include="InputOutput\Tests\semanal\тест1.txt" />
+    <Text Include="InputOutput\Tests\sinanal\тестнабэкматевыражений.txt" />
     <Text Include="InputOutput\Tests\sinanal\начальныйсимвол.txt" />
+    <Text Include="InputOutput\Tests\sinanal\неправильныепараметры.txt" />
+    <Text Include="InputOutput\Tests\sinanal\неправильныйначальныйсимволнедляНаркевич.txt" />
     <Text Include="InputOutput\Tests\sinanal\параметрыфункции.txt" />
+    <Text Include="InputOutput\Tests\sinanal\ТекстДимы.txt" />
+    <Text Include="InputOutput\Tests\Контрольныйпример.txt" />
+    <Text Include="Текст.txt" />
+    <Text Include="циклвцикле.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="InputOutput\program.txt.out.asm" />

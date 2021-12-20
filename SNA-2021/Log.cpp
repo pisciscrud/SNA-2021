@@ -135,8 +135,8 @@ namespace Log {
 				op[0] = '>'; op[1] = '=';
 				break;
 			}
-			*log.stream  << i << "         " << std::setfill(' ') 
-				<< lextable.table[i].lexema << " " << op[0] << op[1]  << std::setw(28) << std::left   << "    " << std::setw(28) << std::left
+			*log.stream << i << "         " << std::setfill(' ')
+				<< lextable.table[i].lexema << " " << op[0] << op[1] << std::setw(28) << std::left << "    " << std::setw(28) << std::left
 				<< lextable.table[i].line << "     ";
 			if (lextable.table[i].idxTI == LT_TI_NULLIDX)
 				*log.stream << "-" << std::endl;
@@ -157,24 +157,20 @@ namespace Log {
 		*log.stream << setw(87) << '-' << endl;
 
 		for (i = 0, j = 0; i < idtable.size; i++, j++) {
-			*log.stream  << j << "  ";
-			*log.stream  << right  << "  ";
+			*log.stream << j << "  ";
+			*log.stream << right << "  ";
 			*log.stream << setfill(' ') << setw(13) << left << idtable.table[i].id << "  ";
 
 			if (idtable.table[i].idtype == IT::OP) *log.stream << setw(10) << left << "-" << "  ";
 			else {
 				switch (idtable.table[i].iddatatype) {
-				case IT::IDDATATYPE::INT:
+				case IT::IDDATATYPE::NUM:
 					*log.stream << setw(10) << left;
 					*log.stream << "int" << "  ";
 					break;
 				case  IT::IDDATATYPE::STR:
 					*log.stream << setw(10) << left;
 					*log.stream << "string" << "  ";
-					break;
-				case  IT::IDDATATYPE::BOOL:
-					*log.stream << setw(10) << left;
-					*log.stream << "bool" << "  ";
 					break;
 				default:
 					*log.stream << setw(10) << left << "unknown" << "  ";
@@ -195,14 +191,10 @@ namespace Log {
 			}
 			*log.stream << setw(11) << left << idtable.table[i].idxFirstLE << " ";
 
-			if (idtable.table[i].iddatatype == IT::IDDATATYPE::INT && (idtable.table[i].idtype == IT::IDTYPE::V || idtable.table[i].idtype == IT::IDTYPE::L))
+			if (idtable.table[i].iddatatype == IT::IDDATATYPE::NUM && (idtable.table[i].idtype == IT::IDTYPE::V || idtable.table[i].idtype == IT::IDTYPE::L))
 				*log.stream << setw(18) << left << idtable.table[i].value.vint;
 			else if (idtable.table[i].iddatatype == IT::IDDATATYPE::STR && (idtable.table[i].idtype == IT::IDTYPE::V || idtable.table[i].idtype == IT::IDTYPE::L))
 				*log.stream << "[" << idtable.table[i].value.vstr.len << "]\"" << idtable.table[i].value.vstr.str << "\"";
-			else if (idtable.table[i].iddatatype == IT::IDDATATYPE::BOOL && (idtable.table[i].idtype == IT::IDTYPE::V || idtable.table[i].idtype == IT::IDTYPE::L))
-				*log.stream << setw(18) << left << (idtable.table[i].value.vint == 0 ? "false" : "true");
-			else if (idtable.table[i].iddatatype == IT::IDDATATYPE::CHAR && (idtable.table[i].idtype == IT::IDTYPE::V || idtable.table[i].idtype == IT::IDTYPE::L))
-				*log.stream << idtable.table[i].value.vchar;
 
 			else *log.stream << "-";
 			*log.stream << endl;

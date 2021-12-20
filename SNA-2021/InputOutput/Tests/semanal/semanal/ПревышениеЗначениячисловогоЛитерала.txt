@@ -1,0 +1,10 @@
+
+EKLER
+{
+
+ create num z = 128_p;
+ create num p = 129_n;
+
+
+
+}

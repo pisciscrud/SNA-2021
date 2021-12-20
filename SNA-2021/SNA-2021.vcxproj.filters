@@ -55,6 +55,9 @@
     <Filter Include="Source Files\Source\Tests\sinanal">
       <UniqueIdentifier>{7201e132-64e9-4b1c-a4aa-7efe0df0eeb9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Source\Tests\semanal">
+      <UniqueIdentifier>{aa0d5f4c-b236-4f04-a6d3-40491417ae8e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SNA-2021.cpp">
@@ -202,8 +205,50 @@
     <Text Include="InputOutput\Tests\sinanal\параметрыфункции.txt">
       <Filter>Source Files\Source\Tests\sinanal</Filter>
     </Text>
-    <Text Include="InputOutput\Tests\sinanal\а.txt">
+    <Text Include="InputOutput\Tests\sinanal\тестнабэкматевыражений.txt">
       <Filter>Source Files\Source\Tests\sinanal</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\sinanal\ТекстДимы.txt">
+      <Filter>Source Files\Source\Tests\sinanal</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\semanal\тест1.txt">
+      <Filter>Source Files\Source\Tests\semanal</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\sinanal\неправильныйначальныйсимволнедляНаркевич.txt">
+      <Filter>Source Files\Source\Tests\sinanal</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\sinanal\неправильныепараметры.txt">
+      <Filter>Source Files\Source\Tests\sinanal</Filter>
+    </Text>
+    <Text Include="циклвцикле.txt">
+      <Filter>Source Files\Source\Tests\sinanal</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\finaltests\Dima.txt">
+      <Filter>Source Files\Source\Tests\semanal</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\finaltests\ЗапретОператоровСтроковогоВыражения.txt">
+      <Filter>Source Files\Source\Tests\semanal</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\semanal\semanal\НеДеклорированныеИдентификаторыВВыражении.txt">
+      <Filter>Source Files\Source\Tests\semanal</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\semanal\semanal\ПревышениеЗначениячисловогоЛитерала.txt">
+      <Filter>Source Files\Source\Tests\semanal</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\semanal\semanal\РазныеТипыДанныхВыраженияtxt.txt">
+      <Filter>Source Files\Source\Tests\semanal</Filter>
+    </Text>
+    <Text Include="Текст.txt">
+      <Filter>Source Files\Source\Tests\semanal</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\semanal\semanal\ФункцияВозращаетНеверныйТипДанных.txt">
+      <Filter>Source Files\Source\Tests\semanal</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\semanal\semanal\объявлениеужеобъявленнойфункции.txt">
+      <Filter>Source Files\Source\Tests\semanal</Filter>
+    </Text>
+    <Text Include="InputOutput\Tests\Контрольныйпример.txt">
+      <Filter>Source Files\Source\Tests</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>

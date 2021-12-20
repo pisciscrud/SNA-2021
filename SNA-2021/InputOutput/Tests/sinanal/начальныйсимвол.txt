@@ -1,0 +1,13 @@
+
+num func i () {
+
+create num a = 10_p;
+}
+process g()
+{
+create num am = 110_p;
+}
+EKLER {
+create nem oo = 0_n;
+
+}

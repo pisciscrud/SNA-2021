@@ -8,15 +8,13 @@
 namespace GRB {
 	Greibach greibach(
 		NS('S'), TS('$'),
-		13,
+		11,
 		Rule(
 			NS('S'), GRB_ERROR_SERIES + 0,   //Стартовый символ,очевидно ошибка здесь есть ошибка на старте
-			5,
+			3,
 			Rule::Chain(6, TS('t'), TS('f'), TS('i'), NS('F'), NS('B'), NS('S')),
-			Rule::Chain(5, TS('p'), TS('i'), NS('F'), NS('U'), NS('S')),
-			Rule::Chain(4, TS('m'), TS('{'), NS('N'), TS('}')),
-			Rule::Chain(5, TS('t'), TS('f'), TS('i'), NS('F'), NS('B')), // удаляем нахуй !!!!!!!!!
-			Rule::Chain(4, TS('p'), TS('i'), NS('F'), NS('U')) // удаляем нахуй   !!!!!!
+			Rule::Chain(7, TS('p'), TS('i'), NS('F'), TS('{'), NS('N'), TS('}'), NS('S')),
+			Rule::Chain(4, TS('m'), TS('{'), NS('N'), TS('}'))
 		),
 		Rule(
 			NS('F'), GRB_ERROR_SERIES + 1,  // Указание параметров функции
@@ -32,36 +30,29 @@ namespace GRB {
 		),
 		Rule(
 			NS('B'), GRB_ERROR_SERIES + 3, // ограничение на тело функции
-			3,
-			Rule::Chain(6, TS('{'), NS('N'), TS('r'), NS('I'), TS(';'), TS('}')),
-			Rule::Chain(5, TS('{'), TS('r'), NS('I'), TS(';'), TS('}')),
-			Rule::Chain(3, TS('{'), NS('N'), TS('}'))
-		),
-		Rule(
-			NS('I'), GRB_ERROR_SERIES + 4, // Недопустимое выражение
-			2,
-			Rule::Chain(1, TS('i')), // Идентификатор
-			Rule::Chain(1, TS('l'))  // Литерал
-		),
-		Rule(
-			NS('U'), GRB_ERROR_SERIES + 5, //Отсутствует тело условия или цикла
-			1,
-			Rule::Chain(3, TS('{'), NS('N'), TS('}')) // Непустой цикл или условие
-													  // Можно сделать пустой цикл                             !!!!!!!
+			5,
+			Rule::Chain(6, TS('{'), NS('N'), TS('r'), TS('i'), TS(';'), TS('}')),
+			Rule::Chain(6, TS('{'), NS('N'), TS('r'), TS('l'), TS(';'), TS('}')),
+			Rule::Chain(5, TS('{'), TS('r'), TS('i'), TS(';'), TS('}')),
+			Rule::Chain(5, TS('{'), TS('r'), TS('l'), TS(';'), TS('}')),
+			Rule::Chain(5, TS('{'),  NS('N'), TS(';'), TS('}'))
+
 		),
 		Rule(
 			NS('N'), GRB_ERROR_SERIES + 6, // Неверная инструкция в функции ( последние  10 - это последнее выражение в теле,  первые 10 - те же выражения,не являющиеся последними в теле
-
-			20,
+			22,
 			Rule::Chain(5, TS('d'), TS('t'), TS('i'), TS(';'), NS('N')),  // Прим. let int a; и ещё какие-то выражения...
-			Rule::Chain(7, TS('d'), TS('t'), TS('i'), TS('='), NS('E'), TS(';'), NS('N')),  // Прим. lety int a = 10; и ещё какие-то выражения...
+			Rule::Chain(7, TS('d'), TS('t'), TS('i'), TS('='), NS('E'), TS(';'), NS('N')),  // Прим. let int a = 10; и ещё какие-то выражения...
 			Rule::Chain(5, TS('i'), TS('='), NS('E'), TS(';'), NS('N')), // a = 12; и ещё какие-то выражения...
 			Rule::Chain(8, TS('u'), TS('('), NS('R'), TS(')'), TS('{'), NS('X'), TS('}'), NS('N')), // цикл ( условие цикла ) { тело цикла } и ещё какие-то выражения;
 			Rule::Chain(8, TS('w'), TS('('), NS('R'), TS(')'), TS('{'), NS('X'), TS('}'), NS('N')), // условие (условие условия) {тело условия} и ещё какие-то выражения
 			Rule::Chain(12, TS('w'), TS('('), NS('R'), TS(')'), TS('{'), NS('X'), TS('}'), TS('!'), TS('{'), NS('X'), TS('}'), NS('N')), // условие (условие условия) { тело условия } else {тела else} и ещё какие-то выражения
-			Rule::Chain(4, TS('o'), NS('I'), TS(';'), NS('N')), // write выводимое; и ещё какие-то выражения
-			Rule::Chain(4, TS('b'), NS('I'), TS(';'), NS('N')), // writeln выводимое; и ещё какие-то выражения
-			Rule::Chain(4, TS('r'), NS('E'), TS(';'), NS('N')), // return E; и ещё какие-то выражения                     !!!!!!!!!
+
+			Rule::Chain(4, TS('o'), TS('i'), TS(';'), NS('N')), // write выводимое; и ещё какие-то выражения
+			Rule::Chain(4, TS('o'), TS('l'), TS(';'), NS('N')), // write выводимое; и ещё какие-то выражения
+			Rule::Chain(4, TS('b'), TS('i'), TS(';'), NS('N')), // writeln выводимое; и ещё какие-то выражения
+			Rule::Chain(4, TS('b'), TS('l'), TS(';'), NS('N')), // writeln выводимое; и ещё какие-то выражения
+
 			Rule::Chain(4, TS('i'), NS('K'), TS(';'), NS('N')), // прим. a K ; и ещё какие-то выражения
 
 			Rule::Chain(4, TS('d'), TS('t'), TS('i'), TS(';')),
@@ -70,13 +61,16 @@ namespace GRB {
 			Rule::Chain(7, TS('u'), TS('('), NS('R'), TS(')'), TS('{'), NS('X'), TS('}')),
 			Rule::Chain(7, TS('w'), TS('('), NS('R'), TS(')'), TS('{'), NS('X'), TS('}')),
 			Rule::Chain(11, TS('w'), TS('('), NS('R'), TS(')'), TS('{'), NS('X'), TS('}'), TS('!'), TS('{'), NS('X'), TS('}')),
-			Rule::Chain(3, TS('o'), NS('I'), TS(';')),
-			Rule::Chain(3, TS('b'), NS('I'), TS(';')),
-			Rule::Chain(3, TS('r'), NS('E'), TS(';')),
+
+			Rule::Chain(3, TS('o'), TS('i'), TS(';')),
+			Rule::Chain(3, TS('o'), TS('l'), TS(';')),
+			Rule::Chain(3, TS('b'), TS('i'), TS(';')),
+			Rule::Chain(3, TS('b'), TS('l'), TS(';')),
+
 			Rule::Chain(3, TS('i'), NS('K'), TS(';'))
 		),
 		Rule(
-			NS('R'), GRB_ERROR_SERIES + 7, // Условное выражения цикла или условия          !!!!!!!!
+			NS('R'), GRB_ERROR_SERIES + 7, // Условное выражения цикла или условия          ЛИТЕРАЛ И ЛИТЕРАЛ!!!!!
 			4,
 			Rule::Chain(1, TS('i')), //
 			Rule::Chain(3, TS('i'), TS('v'), TS('i')), // идентификатор
@@ -95,7 +89,7 @@ namespace GRB {
 			Rule::Chain(1, TS('i')), // идентифекатор
 			Rule::Chain(1, TS('l')),// литерал
 			Rule::Chain(3, TS('('), NS('E'), TS(')')),//(арифметическое выражение)
-			Rule::Chain(2, TS('i'), NS('K')),// идентифекатор и вызов функции    !!!!!!
+			Rule::Chain(2, TS('i'), NS('K')),// идентификатор и вызов функции    !!!!!!
 
 			Rule::Chain(2, TS('i'), NS('M')),
 			Rule::Chain(2, TS('l'), NS('M')),
@@ -118,21 +112,35 @@ namespace GRB {
 		),
 		Rule(
 			NS('X'), GRB_ERROR_SERIES + 12,  // тело цикла или условия
-			14,
-			Rule::Chain(5, TS('d'), TS('t'), TS('i'), TS(';'), NS('N')), // то же,что и в N
-			Rule::Chain(7, TS('d'), TS('t'), TS('i'), TS('='), NS('E'), TS(';'), NS('N')), // то же,что и в N
-			Rule::Chain(5, TS('i'), TS('='), NS('E'), TS(';'), NS('N')), // идентификатор = арифмет. выражение и ещё какое-то выражение           !!!!!
-			Rule::Chain(4, TS('o'), NS('I'), TS(';'), NS('N')),  // write идентификатор||лексема ; и ещё какое-то выражение
-			Rule::Chain(4, TS('b'), NS('E'), TS(';'), NS('N')),  // writeln мат.выражеие ; и ещё какое-то выражение                     !!!!!
-			Rule::Chain(4, TS('r'), NS('E'), TS(';'), NS('N')),  // return мат.выражение ; и ещё какое-то выражение
-			Rule::Chain(4, TS('i'), NS('K'), TS(';'), NS('N')),  // идентификаторФункции вызов функции; и ещё какие-то выражения;
+			20,
+			Rule::Chain(5, TS('d'), TS('t'), TS('i'), TS(';'), NS('X')), // то же,что и в N
+			Rule::Chain(7, TS('d'), TS('t'), TS('i'), TS('='), NS('E'), TS(';'), NS('X')), // то же,что и в N
+			Rule::Chain(5, TS('i'), TS('='), NS('E'), TS(';'), NS('X')), // идентификатор = арифмет. выражение и ещё какое-то выражение           !!!!!
+
+			Rule::Chain(4, TS('o'), TS('i'), TS(';'), NS('X')),  // write идентификатор||лексема ; и ещё какое-то выражение
+			Rule::Chain(4, TS('o'), TS('l'), TS(';'), NS('X')),  // write идентификатор||лексема ; и ещё какое-то выражение
+
+			Rule::Chain(4, TS('b'), TS('l'), TS(';'), NS('X')),  // write идентификатор||лексема ; и ещё какое-то выражение
+			Rule::Chain(4, TS('b'), TS('i'), TS(';'), NS('X')),  // write идентификатор||лексема ; и ещё какое-то выражение
+
+			Rule::Chain(4, TS('r'), TS('i'), TS(';'), NS('X')),
+			Rule::Chain(4, TS('r'), TS('l'), TS(';'), NS('X')),
+
+			Rule::Chain(4, TS('i'), NS('K'), TS(';'), NS('X')),
 
 			Rule::Chain(4, TS('d'), TS('t'), TS('i'), TS(';')),
 			Rule::Chain(6, TS('d'), TS('t'), TS('i'), TS('='), NS('E'), TS(';')),
 			Rule::Chain(4, TS('i'), TS('='), NS('E'), TS(';')),
-			Rule::Chain(3, TS('o'), NS('I'), TS(';')),
-			Rule::Chain(3, TS('b'), NS('I'), TS(';')),
-			Rule::Chain(3, TS('r'), NS('E'), TS(';')),
+
+			Rule::Chain(3, TS('o'), TS('i'), TS(';')),
+			Rule::Chain(3, TS('o'), TS('l'), TS(';')),
+
+			Rule::Chain(3, TS('b'), TS('i'), TS(';')),
+			Rule::Chain(3, TS('b'), TS('l'), TS(';')),
+
+			Rule::Chain(3, TS('r'), TS('i'), TS(';')),
+			Rule::Chain(3, TS('r'), TS('l'), TS(';')),
+
 			Rule::Chain(3, TS('i'), NS('K'), TS(';'))
 		)
 	);

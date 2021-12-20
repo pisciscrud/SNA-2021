@@ -1,25 +1,15 @@
 
-num func i ()
-{
-back 0_p;
-}
 
-process k ()
+process fun2 ()
 {
-create num a;
-
+println "asda";
 }
 
 EKLER
 {
- create num z;
-}
-num func g ()
-{
-back 0_p;
-}
-process l ()
-{
-create num a;
+
+ fun2();
+
+println "message";
 
 }

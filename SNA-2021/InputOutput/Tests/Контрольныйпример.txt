@@ -1,0 +1,43 @@
+process proc1 ()
+{
+create string str = "Hello world!";
+println str;
+}
+
+num func sum (num a,num b){
+create num sum1 = a + b;
+back sum1;
+}
+
+EKLER {
+create num i = 0_p;
+
+replay (i < 10_p) {
+  i=i+1_p;
+  println i;
+}
+
+i=5_p;
+cond (i ? 5_p) {
+     println "Condition works";
+}
+other {
+println "Condition is false";
+}
+
+create num oct = 20_pX8;
+println oct;
+
+create num bin = 1100_pX2;
+println bin;
+
+create num arfm = DEG(2_p,2_p)/2_p * (2_p + 4_p)*5_p - 6_n % 2_p ;
+println arfm;
+
+create num logic = sum(1_p,2_p) + (8_p > 2_n  < 5_p >= 0_p ! 10_p ? 0_p);
+println logic;
+create num libfunc2 ;
+libfunc2 = ABS(2_n) ;
+println libfunc2;
+proc1();
+}
